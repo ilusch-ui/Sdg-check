@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SDG REALITY CHECK 2030</title>
+<style>
+:root{--bg:#0B0F14;--card:#131A22;--line:#24303d;--tx:#F2F5F8;--mu:#9aa7b4;--gr:#2ECC71;--ye:#F4C430;--rd:#FF5C5C;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;overflow-x:hidden}
+a{color:var(--gr)}:focus-visible{outline:3px solid var(--gr);outline-offset:2px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:#0B0F14ee;border-bottom:1px solid var(--line);display:flex;gap:6px;align-items:center;padding:10px 14px;overflow-x:auto;white-space:nowrap}
+nav b{margin-right:auto;letter-spacing:.5px}nav b span{color:var(--gr)}
+nav a,nav button{color:var(--mu);text-decoration:none;font:inherit;font-size:14px;padding:6px 10px;border-radius:8px;background:none;border:0;cursor:pointer}
+nav a:hover,nav button:hover{color:var(--tx);background:var(--card)}
+section{max-width:1000px;margin:0 auto;padding:44px 18px}
+h1{font-size:clamp(30px,7vw,54px);line-height:1.1;margin:0 0 14px}h1 em{color:var(--gr);font-style:normal}
+h2{font-size:clamp(24px,5vw,34px);margin:0 0 6px}.sub{color:var(--mu);margin:0 0 22px}
+.hero{position:relative;padding-top:60px}.hero svg{position:absolute;inset:0;width:100%;height:100%;opacity:.35;z-index:-1}
+.btn{display:inline-block;padding:12px 18px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--tx);text-decoration:none;font-weight:600;margin:6px 8px 0 0;cursor:pointer;font-size:15px}
+.btn.p{background:var(--gr);color:#06210f;border-color:var(--gr)}
+.grid{display:grid;gap:12px}.k4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-3px);border-color:#3a4a5c}
+.num{font-size:42px;font-weight:800;color:var(--gr);line-height:1.1}.card small{color:var(--mu)}
+.sep{border-top:1px dashed var(--line);margin-top:14px;padding-top:6px;color:var(--mu);font-size:13px}
+.bar{margin:14px 0}.bar .l{display:flex;justify-content:space-between;font-size:15px;margin-bottom:5px;gap:10px}
+.bar .t{height:26px;background:#0e141b;border-radius:8px;overflow:hidden}.bar .f{height:100%;width:0;border-radius:8px;transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.quote{font-size:20px;font-weight:700;margin-top:18px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.chip{background:var(--card);border:1px solid var(--line);color:var(--tx);padding:8px 14px;border-radius:99px;cursor:pointer;font:inherit;font-size:14px}
+.chip[aria-pressed=true]{background:var(--gr);color:#06210f;border-color:var(--gr);font-weight:700}
+.goals{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.g{all:unset;box-sizing:border-box;cursor:pointer;background:var(--card);border:1px solid var(--line);border-top:5px solid var(--c);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px;min-height:120px;transition:transform .2s}
+.g:hover{transform:translateY(-3px)}.g:focus-visible{outline:3px solid var(--gr)}
+.g i{font-style:normal;font-weight:800;font-size:26px;color:var(--c)}.g span{font-size:14px;font-weight:600;line-height:1.3}
+dialog{background:var(--card);color:var(--tx);border:1px solid var(--line);border-radius:18px;max-width:560px;width:calc(100% - 28px);padding:22px;max-height:88vh}
+dialog::backdrop{background:#000a}
+.lay{border-left:4px solid var(--c);padding:2px 0 2px 12px;margin:14px 0}.lay h4{margin:0;font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--mu)}.lay p{margin:4px 0 0}
+.tag{display:inline-block;font-size:12px;border:1px solid var(--ye);color:var(--ye);border-radius:6px;padding:2px 8px}
+.note{border:1px solid var(--ye);background:#f4c4300f;border-radius:12px;padding:14px;margin-top:14px;font-size:15px}
+.steps{counter-reset:s}.steps li{margin:8px 0}
+footer{text-align:center;color:var(--mu);font-size:13px;padding:30px 18px}
+#tour{position:fixed;inset:0;background:#0B0F14f2;z-index:50;display:none;align-items:center;justify-content:center;padding:20px}
+#tour.on{display:flex}#tour .in{max-width:640px;width:100%}#tour h2{font-size:clamp(26px,6vw,40px)}#tour p{font-size:clamp(17px,3.4vw,22px)}
+body.pres{font-size:19px}body.pres nav a{display:none}body.pres .num{font-size:60px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav aria-label="Hauptnavigation"><b>SDG <span>REALITY CHECK</span></b>
+<a href="#dash">Dashboard</a><a href="#ziele">Die 17 Ziele</a><a href="#laender">Länder</a><a href="#methode">Methodik &amp; Quellen</a>
+<button id="tourBtn">▶ Rundgang</button><button id="presBtn" aria-pressed="false">Präsentation</button></nav>
+
+<section class="hero" id="top">
+<svg aria-hidden="true" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice" id="net"></svg>
+<h1>17 Ziele. Eine Welt.<br><em>Wie viel Fortschritt ist wirklich drin?</em></h1>
+<p class="sub" style="font-size:18px">Wir überprüfen die Nachhaltigkeitsversprechen der Weltgemeinschaft anhand realer Daten: Was wird besser, was stagniert, wo geht es zurück?</p>
+<a class="btn p" href="#dash">Fortschritt untersuchen</a><a class="btn" href="#laender">Deutschland vergleichen</a>
+</section>
+
+<section id="dash" style="padding-top:10px">
+<div class="grid k4">
+<div class="card"><div class="num" data-n="17">0</div><b>Nachhaltigkeitsziele</b><br><small>Die SDGs (Sustainable Development Goals) decken Armut, Bildung, Klima, Frieden und mehr ab.</small></div>
+<div class="card"><div class="num" data-n="2015">0</div><b>Jahr der Verabschiedung</b><br><small>Die UN beschloss die „Agenda 2030“ im September 2015.</small></div>
+<div class="card"><div class="num" data-n="2030">0</div><b>Zieljahr</b><br><small>Bis dahin sollen die Ziele erreicht sein.</small></div>
+<div class="card"><div class="num" data-n="193">0</div><b>UN-Mitgliedstaaten</b><br><small>Die Staaten haben die Agenda beschlossen.</small><div class="sep">Kein Fortschrittswert, nur Hintergrund.</div></div>
+</div></section>
+
+<section id="welt" style="padding-top:10px">
+<h2>Wie steht die Welt wirklich da?</h2>
+<p class="sub">Anteil der bewerteten Zielvorgaben je Trend. <span class="tag">Daten aus 2025</span></p>
+<div class="card" id="chart" role="img" aria-label="Balkendiagramm: 35 Prozent auf Kurs oder mäßiger Fortschritt, 47 Prozent zu langsam, 18 Prozent Rückschritte, bezogen auf 137 Zielvorgaben, UN-Bericht 2025">
+<div class="bar"><div class="l"><span>✔ Auf Kurs / mäßiger Fortschritt</span><b>35 %</b></div><div class="t"><div class="f" data-w="35" style="background:var(--gr)"></div></div></div>
+<div class="bar"><div class="l"><span>⚠ Zu langsamer Fortschritt</span><b>47 %</b></div><div class="t"><div class="f" data-w="47" style="background:var(--ye)"></div></div></div>
+<div class="bar"><div class="l"><span>▼ Rückschritte</span><b>18 %</b></div><div class="t"><div class="f" data-w="18" style="background:var(--rd)"></div></div></div>
+<button class="btn" id="info">Woher kommen diese Zahlen?</button>
+<div class="quote">Ein beschlossenes Ziel ist noch kein erreichtes Ziel.</div></div>
+</section>
+
+<section id="ziele" style="padding-top:10px">
+<h2>Die 17 Ziele</h2><p class="sub">Tippe ein Ziel an für den Reality Check: Versprechen, Realität, Bewertung.</p>
+<div class="chips" id="chips" role="group" aria-label="Filter"></div>
+<div class="grid goals" id="goals"></div>
+<div class="note">Die Filter sind unsere eigene Sortierung zur Orientierung, keine offizielle Einteilung der UN. Einen Status pro Ziel zeigen wir bewusst nicht, weil wir hier keine verifizierten Einzelwerte haben.</div>
+</section>
+
+<section id="laender">
+<h2>Welche Länder machen Fortschritte?</h2>
+<p class="sub">Ländervergleich mit Deutschland als Startpunkt</p>
+<div class="card"><span class="tag">SDG-Index 2026 · SDSN · 169 Länder</span>
+<div id="dm" role="img" aria-label="Weltkarte mit Landesgrenzen, acht Länder nach SDG-Index 2025 eingefärbt. Die Tabelle darunter enthält dieselben Werte." style="display:none;position:relative;width:100%;margin:12px 0"></div>
+<svg id="wm" viewBox="0 0 360 180" role="img" aria-label="Vereinfachte Weltkarte mit acht Ländern, eingefärbt nach SDG-Index-Punktzahl 2025. Die Tabelle darunter enthält dieselben Werte." style="width:100%;height:auto;background:#0e141b;border-radius:12px;margin:12px 0"></svg>
+<p id="wi" style="min-height:26px;margin:0 0 8px"><small>Tippe ein Land an, dann siehst du, warum es so viele Punkte hat. Grün: ab 80 Punkte, gelb: 70–79, orange: 60–69, rot: unter 60, dunkelgrau: kein Wert.</small></p>
+<details id="how" open class="note" style="margin:0 0 14px"><summary style="cursor:pointer;font-weight:700">So funktioniert die Punkteverteilung</summary>
+<ol class="steps" style="padding-left:20px"><li><b>Messen:</b> Jedes der 17 Ziele wird mit Messwerten (Indikatoren) geprüft. 2026 sind es 123: 101 für alle Länder und 22 zusätzlich nur für OECD-Länder.</li>
+<li><b>Umrechnen:</b> Jeder Messwert wird auf 0 bis 100 gebracht. 0 ist ein sehr schlechter Wert, 100 ist der Zielwert. Die Grenzen sind für alle Länder gleich.</li>
+<li><b>Zielwerte:</b> Sie kommen aus UN-Zielen, wissenschaftlichen Vorgaben, dem Durchschnitt der besten Länder oder Vorschlägen von Fachleuten.</li>
+<li><b>Mittelwert:</b> Der Durchschnitt der Messwerte eines Ziels ergibt die Punkte für dieses Ziel. Der Durchschnitt der 17 Ziele ergibt die Gesamtpunkte, jedes Ziel zählt gleich viel.</li>
+<li><b>Lesen:</b> Die Punkte zeigen, wie viel Prozent des Weges zu allen Zielen geschafft sind. 100 minus Punkte ist der Rest. Finnland hat 87,4, also fehlen noch 12,6.</li></ol>
+<p><b>Rechenbeispiel</b> (erfunden, nur zum Verstehen): Schlechtester Wert 20, Zielwert 100, ein Land hat 60. Dann sind es (60 − 20) ÷ (100 − 20) × 100 = 50 Punkte.</p>
+<p><b>Grenzen:</b> Die Punkte sagen nur, wo ein Land steht, nicht wie schnell es vorankommt. Punkte und Plätze verschiedener Jahre sind nur eingeschränkt vergleichbar, weil sich Daten und Messwerte ändern. Länder mit zu vielen fehlenden Daten bekommen keine Platzierung. Die Pfeile „Seit 2015“ nutzen einen kleineren Index mit nur 17 Messwerten, einem pro Ziel.</p>
+<p><small>Quelle: <a href="https://dashboards.sdgindex.org/chapters/part-5-methods/" target="_blank" rel="noopener">Methodik des Sustainable Development Report 2026</a></small></p></details>
+<input id="ws" type="search" placeholder="Land suchen" aria-label="Land suchen" style="width:100%;padding:10px 12px;margin:6px 0 10px;border-radius:10px;border:1px solid var(--line);background:#0e141b;color:var(--tx);font:inherit">
+<label style="display:block;margin:0 0 8px;font-size:14px"><input type="checkbox" id="wo"> Nur Länder mit Entwicklungsdaten seit 2015 (10)</label>
+<div style="overflow:auto;max-height:340px"><table id="wt" style="width:100%;border-collapse:collapse;font-size:15px"><thead style="position:sticky;top:0;background:var(--card)"><tr style="text-align:left"><th><button class="chip" data-k="r">Platz ⇅</button></th><th><button class="chip" data-k="n">Land ⇅</button></th><th><button class="chip" data-k="s">Punkte ⇅</button></th><th style="padding:0 8px">Seit 2015</th></tr></thead><tbody></tbody></table></div>
+<p><small>Quelle: Sustainable Development Report 2026 (SDSN), Rangliste auf dashboards.sdgindex.org, abgerufen am 13.10.2026. 169 Länder haben einen Wert, 24 UN-Mitglieder (z. B. Libyen, Nordkorea) nicht. Das ist der Stand (Gesamtwert), nicht die Entwicklung. Ländernamen wie in der Quelle auf Englisch. Der Index misst Nachhaltigkeit insgesamt, nicht nur Wirtschaft. Falls die Kartenbibliothek nicht lädt, erscheint eine vereinfachte Karte mit 8 Ländern.</small></p>
+<p><small><b>Pfeile „Seit 2015“:</b> Nur für 10 Länder nennt der SDR-2026-Text Zahlen, bei allen anderen steht „–“ (Werte stehen in den Länderprofilen). „Pkt.“ ist die Veränderung des Headline-Index (SDGhi) 2015–2025 in Prozentpunkten und nicht dieselbe Zahl wie die Punkte in der Tabelle. „Plätze“ ist der rückwirkend berechnete Rang 2015 im Vergleich zu heute. Ein roter Pfeil bei Plätzen heißt nur, dass andere Länder schneller vorankamen, nicht dass die Punkte sanken.</small></p>
+<div class="lay" style="--c:#2ECC71"><h4>Wer hat aufgeholt?</h4><p>Am stärksten seit 2015 (große Länder, Prozentpunkte, SDR 2026): Äthiopien +9,7, Indien +9,6, Philippinen +7,9, Vietnam +7,7, China +5,2. Ost- und Südasien ist laut SDSN die am schnellsten vorankommende Region.</p></div>
+<div class="lay" style="--c:#FF5C5C"><h4>Wer ist zurückgefallen?</h4><p>Ein Land mit sinkenden Punkten ist im Berichtstext nicht belegt: Laut SDSN haben alle zehn größten Länder netto Fortschritte gemacht. Im Ranking verloren die USA (Platz 40 auf 45) und Nigeria je 5 Plätze. Weltweit rückläufig sind einzelne Teilziele, z. B. Fettleibigkeit, Pressefreiheit und Artenschutz (SDSN 2025).</p></div>
+<p>Weitere Daten gibt es beim <a href="https://dashboards.sdgindex.org" target="_blank" rel="noopener">Sustainable Development Report (SDSN)</a> und bei der <a href="https://data.worldbank.org" target="_blank" rel="noopener">Weltbank</a>.</p>
+<p><b>So liest du später einen Vergleich:</b></p>
+<ol class="steps"><li>Datenjahre prüfen: Sind beide Länder aus demselben Jahr?</li><li>Definitionen prüfen: Wird dasselbe gemessen?</li><li>Hoher Gesamtwert heißt nicht, dass ein Land bei allen Zielen gut ist.</li></ol></div>
+</section>
+
+<section id="methode">
+<h2>Methodik &amp; Quellen</h2>
+<div class="card">
+<p><b>Datenbasis:</b> Trendanteile (35/47/18 %) stammen aus dem UN-Bericht „Sustainable Development Goals Report 2025“ und beziehen sich auf 137 Zielvorgaben mit Trenddaten, nicht auf 137 Länder.</p>
+<p><b>Aktualität:</b> Diese Seite lädt keine Live-Daten. Alles ist fest eingebaut und mit Jahr gekennzeichnet. Neuere Berichte können bessere Zahlen enthalten.</p>
+<p><b>Länderdaten:</b> SDG-Index 2026 des SDSN, Rangliste vom 13.10.2026. Der Index ist eine Berechnung des SDSN, kein offizieller UN-Wert.</p>
+<p><b>Grenzen:</b> Die Ziele lassen sich nicht mit einer einzigen Zahl bewerten. Wir berechnen deshalb keinen eigenen Gesamtscore.</p>
+<p><b>Quellen:</b> <a href="https://unstats.un.org/sdgs/report" target="_blank" rel="noopener">UN SDG Report</a> · <a href="https://sdgs.un.org/goals" target="_blank" rel="noopener">UN Ziele</a> · <a href="https://ourworldindata.org/sdgs" target="_blank" rel="noopener">Our World in Data</a> · <a href="https://data.worldbank.org" target="_blank" rel="noopener">Weltbank</a></p></div>
+</section>
+<footer>SDG REALITY CHECK 2030 · Bildungsprojekt · Zahlen immer mit Quelle prüfen</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.9/datamaps.world.min.js"></script>
+<dialog id="dlg" aria-labelledby="dt"><div id="dc"></div><button class="btn" id="cl">Schließen</button></dialog>
+<div id="tour" role="dialog" aria-modal="true" aria-label="Rundgang"><div class="in"><small id="ts"></small><h2 id="th"></h2><p id="tp"></p><button class="btn" id="tb">Zurück</button><button class="btn p" id="tn">Weiter</button><button class="btn" id="tx">Beenden</button></div></div>
+
+<script>
+const G=[
+["Keine Armut","#E5243B","s","Extreme Armut beenden und Menschen vor Notlagen schützen.","Armut wird nicht nur an Einkommen gemessen, sondern auch an Zugang zu Essen, Wohnen und Schutz.","Krisen wie Kriege und Preisanstiege können Fortschritte schnell bremsen."],
+["Kein Hunger","#DDA63A","s","Hunger beenden und gesunde Ernährung für alle sichern.","Es geht um Menge und Qualität des Essens, auch bei Kindern.","Konflikte und Klimaextreme gehören zu den Hauptgründen für neue Hungerkrisen."],
+["Gesundheit und Wohlergehen","#4C9F38","s","Gesundes Leben und Wohlbefinden für alle Altersgruppen.","Impfungen, Mütter- und Kindergesundheit sind zentrale Messgrößen.","Der Zugang zu Medizin ist zwischen Ländern sehr ungleich verteilt."],
+["Hochwertige Bildung","#C5192D","s","Gleiche, gute Bildung und Lernchancen für alle.","Wichtig sind Schulbesuch, aber auch, ob Kinder wirklich lesen und rechnen lernen.","Zugang zur Schule ist nicht dasselbe wie gute Lernergebnisse."],
+["Geschlechtergleichheit","#FF3A21","s","Gleichberechtigung und Selbstbestimmung für Frauen und Mädchen.","Gemessen werden z. B. Mitsprache in der Politik und Schutz vor Gewalt.","Der Fortschritt ist je nach Region und Thema sehr verschieden."],
+["Sauberes Wasser und Sanitäreinrichtungen","#26BDE2","u","Sauberes Trinkwasser und Toiletten für alle.","Entscheidend ist sicher verwaltetes Wasser, nicht nur ein Brunnen in der Nähe.","Auf dem Land fehlt der Zugang häufiger als in Städten."],
+["Bezahlbare und saubere Energie","#FCC30B","w","Zuverlässige, bezahlbare und saubere Energie für alle.","Beispiel: Rund 92 % der Menschen weltweit hatten 2023 Strom (UN-Bericht 2025).","Wer keinen Strom hat, lebt oft in Subsahara-Afrika. Sauberes Kochen ist ein eigenes Problem."],
+["Menschenwürdige Arbeit und Wirtschaftswachstum","#A21942","w","Gute Arbeit und nachhaltiges Wachstum.","Es zählt, ob Arbeit fair bezahlt und sicher ist, nicht nur, ob die Wirtschaft wächst.","Wachstum allein sagt wenig über Lebensqualität oder Umweltfolgen."],
+["Industrie, Innovation und Infrastruktur","#FD6925","w","Stabile Infrastruktur und Innovation fördern.","Dazu gehören Straßen, Internet und Forschung.","Ärmere Länder haben oft schlechteren Zugang zu Technik."],
+["Weniger Ungleichheiten","#DD1367","s","Ungleichheit innerhalb und zwischen Ländern verringern.","Verglichen werden Einkommen, Chancen und Rechte.","Ein Durchschnittswert versteckt oft große Unterschiede."],
+["Nachhaltige Städte und Gemeinden","#FD9D24","w","Städte sicher, widerstandsfähig und nachhaltig machen.","Themen sind Wohnen, Verkehr, Luftqualität und Müll.","Schnelles Städtewachstum überfordert oft die Infrastruktur."],
+["Nachhaltiger Konsum und nachhaltige Produktion","#BF8B2E","u","Ressourcen schonen, weniger Müll und Verschwendung.","Gemessen werden z. B. Ressourcenverbrauch und Lebensmittelverluste.","Der weltweite Ressourcenverbrauch ist ein Dauerproblem."],
+["Maßnahmen zum Klimaschutz","#3F7E44","u","Klimawandel bekämpfen und seine Folgen begrenzen.","Wichtig sind Treibhausgasemissionen und Klimapläne der Länder.","Global, national und politische Ziele unterscheiden: Pläne sind noch keine Emissionssenkung."],
+["Leben unter Wasser","#0A97D9","u","Meere und Meeresressourcen schützen.","Beobachtet werden Überfischung, Verschmutzung und Schutzgebiete.","Meeresschutz hängt oft an internationalen Absprachen."],
+["Leben an Land","#56C02B","u","Wälder, Böden und Artenvielfalt schützen.","Indikatoren sind Waldfläche und bedrohte Arten.","Artenverlust ist schwer umkehrbar."],
+["Frieden, Gerechtigkeit und starke Institutionen","#00689D","f","Friedliche Gesellschaften, Zugang zu Recht, faire Institutionen.","Gemessen werden z. B. Gewalt, Korruption und Rechtszugang.","Kriege und Konflikte haben in den letzten Jahren zugenommen."],
+["Partnerschaften zur Erreichung der Ziele","#19486A","f","Zusammenarbeit und Finanzierung für die Ziele stärken.","Dazu zählen Entwicklungshilfe, Handel und Datenaustausch.","Ohne Geld und Zusammenarbeit bleiben viele Ziele Papier."]];
+const C={a:"Alle",s:"Soziales",u:"Umwelt & Klima",w:"Wirtschaft & Infrastruktur",f:"Frieden & Zusammenarbeit"};
+const $=s=>document.querySelector(s);
+let cur="a";
+function draw(){$("#goals").innerHTML=G.map((g,i)=>(cur==="a"||g[2]===cur)?`<button class="g" style="--c:${g[1]}" data-i="${i}"><i>${i+1}</i><span>${g[0]}</span></button>`:"").join("")}
+$("#chips").innerHTML=Object.entries(C).map(([k,v])=>`<button class="chip" data-k="${k}" aria-pressed="${k==="a"}">${v}</button>`).join("");
+$("#chips").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;cur=b.dataset.k;document.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b));draw()};
+$("#goals").onclick=e=>{const b=e.target.closest(".g");if(!b)return;const g=G[b.dataset.i];
+$("#dc").innerHTML=`<div style="--c:${g[1]}"><h2 id="dt">Ziel ${+b.dataset.i+1}: ${g[0]}</h2>
+<div class="lay"><h4>A · Das Versprechen</h4><p>${g[3]}</p></div>
+<div class="lay"><h4>B · Die Realität</h4><p>${g[4]}</p></div>
+<div class="lay"><h4>C · Die Bewertung</h4><p>${g[5]}</p></div>
+<p><small>Quelle: <a href="https://unstats.un.org/sdgs/report" target="_blank" rel="noopener">UN SDG Report 2025</a>. Keine Einzelzahl ersetzt die vollständige Bewertung.</small></p></div>`;$("#dlg").showModal()};
+$("#info").onclick=()=>{$("#dc").innerHTML=`<h2 id="dt">Datengrundlage</h2><p>UN-Bericht 2025: Von 137 Zielvorgaben mit Trenddaten waren 35 % auf Kurs oder mit mäßigem Fortschritt, 47 % zu langsam und 18 % mit Rückschritten.</p><p>Das sind <b>Zielvorgaben</b>, keine Länder und keine 17 Ziele als Ganzes. Stand: 2025. Neuere Berichte können abweichen.</p>`;$("#dlg").showModal()};
+$("#cl").onclick=()=>$("#dlg").close();
+$("#dlg").onclick=e=>{if(e.target.id==="dlg")e.target.close()};
+draw();
+const RAW="FIN|Finland|87.40;SWE|Sweden|86.26;DNK|Denmark|85.68;NOR|Norway|84.08;DEU|Germany|84.02;AUT|Austria|83.95;FRA|France|83.43;GBR|United Kingdom|82.45;ISL|Iceland|82.32;CZE|Czechia|82.21;POL|Poland|82.07;EST|Estonia|81.79;HRV|Croatia|81.77;LVA|Latvia|81.71;SVN|Slovenia|81.66;ESP|Spain|81.17;PRT|Portugal|81.13;BEL|Belgium|81.08;NLD|Netherlands|81.04;JPN|Japan|81.02;SVK|Slovak Republic|80.90;CHE|Switzerland|80.32;LTU|Lithuania|80.03;HUN|Hungary|80.01;IRL|Ireland|80.00;ITA|Italy|79.91;NZL|New Zealand|79.51;CAN|Canada|79.07;AUS|Australia|79.02;MLT|Malta|78.93;MDA|Moldova|78.81;GRC|Greece|78.63;CHL|Chile|78.46;KOR|Korea, Rep.|78.41;BLR|Belarus|78.33;SRB|Serbia|78.17;ROU|Romania|78.08;URY|Uruguay|77.91;LUX|Luxembourg|77.54;CUB|Cuba|76.60;BGR|Bulgaria|76.19;UKR|Ukraine|75.89;THA|Thailand|75.43;ALB|Albania|75.41;USA|United States|75.34;CYP|Cyprus|75.30;ARM|Armenia|75.10;MNE|Montenegro|75.00;CHN|China|74.71;KGZ|Kyrgyz Republic|74.58;RUS|Russian Federation|74.47;AZE|Azerbaijan|74.31;BRA|Brazil|74.21;BIH|Bosnia and Herzegovina|73.92;ISR|Israel|73.91;MKD|North Macedonia|73.89;ARG|Argentina|73.86;VNM|Vietnam|73.84;SGP|Singapore|73.82;CRI|Costa Rica|73.64;GEO|Georgia|73.45;FJI|Fiji|73.41;MDV|Maldives|73.34;DOM|Dominican Republic|73.02;UZB|Uzbekistan|72.95;PER|Peru|72.87;KAZ|Kazakhstan|72.03;MAR|Morocco|71.72;COL|Colombia|71.63;DZA|Algeria|71.61;ARE|United Arab Emirates|71.45;TUN|Tunisia|71.32;BTN|Bhutan|71.11;IDN|Indonesia|70.81;MEX|Mexico|70.55;MYS|Malaysia|70.38;TUR|Türkiye|70.24;SUR|Suriname|69.97;ECU|Ecuador|69.92;PHL|Philippines|69.87;OMN|Oman|69.87;JOR|Jordan|69.69;BLZ|Belize|69.53;JAM|Jamaica|69.26;BRB|Barbados|69.03;EGY|Egypt, Arab Rep.|68.95;BRN|Brunei Darussalam|68.95;PAN|Panama|68.91;IRN|Iran, Islamic Rep.|68.82;NPL|Nepal|68.69;MNG|Mongolia|68.60;LKA|Sri Lanka|68.54;PRY|Paraguay|68.44;IND|India|68.33;CPV|Cabo Verde|68.19;SLV|El Salvador|68.10;MUS|Mauritius|68.04;TJK|Tajikistan|67.83;BOL|Bolivia|67.57;NAM|Namibia|67.13;QAT|Qatar|66.42;TLS|Timor-Leste|66.15;BHS|Bahamas, The|66.06;SAU|Saudi Arabia|65.86;BHR|Bahrain|65.67;KEN|Kenya|65.63;VEN|Venezuela, RB|65.37;KHM|Cambodia|65.31;ZAF|South Africa|65.18;BGD|Bangladesh|64.84;STP|Sao Tome and Principe|64.83;BWA|Botswana|64.63;NIC|Nicaragua|64.39;RWA|Rwanda|64.29;GUY|Guyana|64.23;GAB|Gabon|63.92;GHA|Ghana|63.86;SEN|Senegal|63.41;CIV|Cote d'Ivoire|63.24;KWT|Kuwait|62.91;LBN|Lebanon|62.89;LAO|Lao PDR|62.53;MMR|Myanmar|62.42;IRQ|Iraq|62.04;HND|Honduras|61.79;TTO|Trinidad and Tobago|61.33;GTM|Guatemala|60.86;TKM|Turkmenistan|59.94;BEN|Benin|59.72;SYR|Syrian Arab Republic|59.65;PAK|Pakistan|59.27;TGO|Togo|59.12;SWZ|Eswatini|59.01;GMB|Gambia, The|58.47;CMR|Cameroon|57.63;TZA|Tanzania|57.57;MRT|Mauritania|57.44;ZWE|Zimbabwe|57.25;GIN|Guinea|56.84;MWI|Malawi|56.52;ETH|Ethiopia|56.26;SLE|Sierra Leone|55.91;NGA|Nigeria|55.71;UGA|Uganda|55.46;LSO|Lesotho|54.87;BFA|Burkina Faso|54.40;COM|Comoros|54.39;DJI|Djibouti|54.30;MLI|Mali|54.00;ZMB|Zambia|53.87;BDI|Burundi|53.52;GNB|Guinea-Bissau|53.32;MOZ|Mozambique|53.05;MDG|Madagascar|52.87;COG|Congo, Rep.|52.54;AGO|Angola|52.40;PNG|Papua New Guinea|52.21;LBR|Liberia|50.91;HTI|Haiti|50.71;NER|Niger|49.60;AFG|Afghanistan|48.78;ERI|Eritrea|48.69;COD|Congo, Dem. Rep.|48.28;YEM|Yemen, Rep.|47.80;SDN|Sudan|47.73;SOM|Somalia|46.18;TCD|Chad|43.92;CAF|Central African Republic|43.29;SSD|South Sudan|39.87";
+const ALL=RAW.split(";").map((r,i)=>{const a=r.split("|");return{c:a[0],n:a[1],s:+a[2],r:i+1}});
+const XY={FIN:[25,60],SWE:[18,59],DNK:[13,56],DEU:[13,52.5],USA:[-77,39],CHN:[116,40],KAZ:[71,51],IND:[77,29]};
+const L=ALL.filter(x=>XY[x.c]).map(x=>[x.n,x.r,x.s,XY[x.c][0],XY[x.c][1]]);
+const fk=v=>v>=80?"a":v>=70?"b":v>=60?"c":"d";
+const TR={ETH:{p:9.7,k:15},IND:{p:9.6,k:18,f:112},PHL:{p:7.9},VNM:{p:7.7},CHN:{p:5.2,k:14,f:63},COD:{p:3.1},NGA:{p:2.3,k:-5},IDN:{k:15},USA:{k:-5,f:40},RUS:{k:0,f:51}};
+const trd=c=>{const t=TR[c];if(!t)return'<span style="color:var(--mu)" title="Keine Angabe im Berichtstext">–</span>';let h="";if(t.p!=null)h+=`<span style="color:var(--gr)">▲ +${t.p.toFixed(1).replace(".",",")} Pkt.</span> `;if(t.k>0)h+=`<span style="color:var(--gr)">▲ ${t.k} Plätze</span>`;else if(t.k<0)h+=`<span style="color:var(--rd)">▼ ${-t.k} Plätze</span>`;else if(t.k===0)h+=`<span style="color:var(--mu)">● Platz gleich</span>`;return h};
+const LM=[[[-168,66],[-125,70],[-85,72],[-62,60],[-55,48],[-70,42],[-80,30],[-81,25],[-97,26],[-105,22],[-95,16],[-83,9],[-92,15],[-110,24],[-118,32],[-124,40],[-130,54],[-150,60]],[[-80,8],[-60,10],[-50,0],[-35,-6],[-40,-22],[-55,-35],[-65,-55],[-72,-50],[-72,-30],[-81,-5]],[[-10,36],[-9,43],[0,50],[10,58],[25,70],[60,70],[110,76],[140,72],[180,68],[170,60],[140,52],[135,35],[122,30],[110,20],[100,8],[80,8],[72,20],[55,25],[45,13],[35,30],[28,36],[10,38]],[[-17,15],[-10,35],[10,37],[32,31],[43,12],[51,11],[40,-15],[33,-28],[18,-35],[12,-17],[9,4],[-8,5]],[[114,-22],[130,-12],[142,-11],[153,-27],[146,-39],[115,-34]]];
+const PT=p=>p.map(a=>(a[0]+180)+","+(90-a[1])).join(" ");
+const col=v=>v>=80?"#2ECC71":v>=70?"#F4C430":v>=60?"#FF9F43":"#FF5C5C";
+$("#wm").innerHTML=LM.map(p=>`<polygon points="${PT(p)}" fill="#1b2631" stroke="#2c3a49" stroke-width=".4"/>`).join("")+L.map((c,i)=>`<circle data-i="${i}" cx="${c[3]+180}" cy="${90-c[4]}" r="3.2" fill="${col(c[2])}" stroke="#fff" stroke-width=".5" style="cursor:pointer"><title>${c[0]}: Platz ${c[1]}, ${c[2]} Punkte</title></circle>`).join("");
+$("#wm").onclick=e=>{const c=e.target.closest("circle");if(!c)return;const k=L[c.dataset.i];showC(ALL.find(x=>x.n===k[0]).c);$("#wi").innerHTML=`<b>${k[0]}</b>: Platz ${k[1]} von 169, ${k[2].toFixed(1)} von 100 Punkten`};
+let sk="r",sd=1;
+function rt(){const q=$("#ws").value.toLowerCase();const a=ALL.filter(x=>x.n.toLowerCase().includes(q)&&(!$("#wo").checked||TR[x.c])).sort((x,y)=>sk==="n"?sd*x.n.localeCompare(y.n):sd*(x[sk]-y[sk]));
+$("#wt tbody").innerHTML=a.map(c=>`<tr data-c="${c.c}" tabindex="0" style="border-top:1px solid var(--line);cursor:pointer"><td>${c.r}</td><td><span style="color:${col(c.s)}">&#9679;</span> ${c.n}</td><td>${c.s.toFixed(2)}</td><td>${trd(c.c)}</td></tr>`).join("")||'<tr><td colspan="4">Kein Land gefunden.</td></tr>'}
+$("#wt tbody").onclick=e=>{const r=e.target.closest("tr[data-c]");r&&showC(r.dataset.c)};$("#wt tbody").onkeydown=e=>{if(e.key==="Enter"){const r=e.target.closest("tr[data-c]");r&&showC(r.dataset.c)}};$("#ws").oninput=rt;$("#wo").onchange=rt;
+$("#wt thead").onclick=e=>{const t=e.target.closest("[data-k]");if(!t)return;const k=t.dataset.k;sd=sk===k?-sd:(k==="s"?-1:1);sk=k;rt()};
+rt();
+const CD=["FIN","SWE","DNK","DEU","USA","CHN","KAZ","IND"];
+if(window.Datamap){try{const data={};ALL.forEach(x=>data[x.c]={fillKey:fk(x.s),n:x.n,r:x.r,s:x.s,c:x.c});
+$("#dm").style.display="block";$("#dm").style.height=Math.max(180,Math.round($("#dm").clientWidth/1.9))+"px";const dm=new Datamap({element:$("#dm"),responsive:true,fills:{defaultFill:"#1b2631",a:"#2ECC71",b:"#F4C430",c:"#FF9F43",d:"#FF5C5C"},data,
+geographyConfig:{borderColor:"#3a4a5c",borderWidth:.5,highlightOnHover:false,popupTemplate:(g,d)=>`<div class="hoverinfo" style="color:#111;padding:4px 8px"><b>${g.properties.name}</b><br>${d&&d.n?"Platz "+d.r+", "+d.s.toFixed(1)+" Punkte"+(TR[d.c]?"<br>Seit 2015: "+trd(d.c):""):"nicht in unserer Auswahl"}</div>`},
+done:ds=>ds.svg.selectAll(".datamaps-subunit").on("click",g=>{const d=data[g.id];if(d)showC(g.id);$("#wi").innerHTML=d?`<b>${d.n}</b>: Platz ${d.r} von 169, ${d.s.toFixed(1)} von 100 Punkten${TR[d.c]?" · Seit 2015: "+trd(d.c):""}`:`<b>${g.properties.name}</b>: in unserer Auswahl nicht belegt`})});
+$("#wm").style.display="none";addEventListener("resize",()=>dm.resize());setTimeout(()=>{const p=$("#dm svg path");const bb=$("#dm svg")&&$("#dm svg").getBoundingClientRect();if(!p||!bb||bb.height<40){$("#dm").style.display="none";$("#wm").style.display=""}},1200)}catch(e){$("#dm").style.display="none";$("#wm").style.display=""}}
+const BY={};ALL.forEach(x=>BY[x.c]=x);
+function openHow(){$("#dlg").close();const h=$("#how");h.open=true;h.scrollIntoView({behavior:rm?"auto":"smooth"})}
+function showC(code){const x=BY[code];if(!x)return;
+const avg=ALL.reduce((a,b)=>a+b.s,0)/ALL.length,top=ALL[0],dv=x.s-avg;
+const why=x.s>=80?"Hohe Punktzahl: Bei vielen der Messwerte liegt das Land nah am Zielwert, besonders bei Gesundheit, Bildung, Wasser, Energie und Institutionen. Auch Spitzenländer haben Lücken. Laut SDSN-Berichten liegen sie typischerweise bei Konsum und Produktion (Ziel 12), Klima (13) und Natur (14, 15).":x.s>=70?"Mittlere bis hohe Punktzahl: Viele Messwerte sind gut, aber bei einigen Zielen bleibt ein deutlicher Abstand zum Zielwert.":x.s>=60?"Mittlere Punktzahl: Bei einem Teil der Ziele ist der Abstand zum Zielwert groß, bei anderen Zielen steht das Land besser da.":"Niedrige Punktzahl: Bei vielen Messwerten ist der Abstand zum Zielwert groß. Laut SDSN-Berichten betrifft das typischerweise Armut, Hunger, Gesundheit, Bildung, Wasser, Strom und Frieden. Konflikte, niedrige Einkommen und schwache Infrastruktur spielen oft eine Rolle.";
+$("#dc").innerHTML=`<h2 id="dt">${x.n}</h2>
+<div class="num" style="color:${col(x.s)}">${x.s.toFixed(2)} <small style="font-size:18px">von 100 Punkten</small></div>
+<p style="margin:0 0 8px">Platz ${x.r} von 169</p>
+<div style="height:14px;background:#0e141b;border-radius:8px;overflow:hidden"><div style="width:${x.s}%;height:100%;background:${col(x.s)}"></div></div>
+<ul style="padding-left:20px;margin:12px 0"><li>Abstand zu 100 Punkten: ${(100-x.s).toFixed(1)}</li>
+<li>Durchschnitt der 169 Länder (ungewichtet): ${avg.toFixed(1)}, dieses Land liegt ${Math.abs(dv).toFixed(1)} Punkte ${dv>=0?"darüber":"darunter"}</li>
+<li>Platz 1 (${top.n}): ${top.s.toFixed(1)}, Abstand ${(top.s-x.s).toFixed(1)}</li>
+${TR[code]?"<li>Seit 2015: "+trd(code)+"</li>":""}</ul>
+<div class="lay" style="--c:${col(x.s)}"><h4>Warum dieser Wert?</h4><p>${why}</p></div>
+<p><small>Das ist ein typisches Muster, nicht für dieses Land einzeln geprüft. Welche Ziele bei ${x.n} genau gut oder schlecht laufen, zeigt das offizielle Länderprofil mit Ampelfarben für alle 17 Ziele: <a href="https://dashboards.sdgindex.org/profiles/" target="_blank" rel="noopener">Länderprofile des SDSN</a> (dort das Land auswählen).</small></p>
+<button class="btn" onclick="openHow()">So werden Punkte berechnet</button>`;$("#dlg").showModal()}
+const rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+function count(el){const n=+el.dataset.n;if(rm){el.textContent=n;return}let t0;const f=t=>{t0=t0||t;const p=Math.min((t-t0)/1000,1);el.textContent=Math.round(n*p);p<1&&requestAnimationFrame(f)};requestAnimationFrame(f)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;io.unobserve(e.target);
+if(e.target.dataset.n)count(e.target);else e.target.querySelectorAll(".f").forEach(f=>f.style.width=f.dataset.w+"%")}),{threshold:.3});
+document.querySelectorAll(".num").forEach(n=>io.observe(n));io.observe($("#chart"));
+let h="";for(let i=0;i<40;i++){const x=(i*137)%800,y=(i*89)%400;h+=`<circle cx="${x}" cy="${y}" r="2.5" fill="#2ECC71"/>`;if(i)h+=`<line x1="${x}" y1="${y}" x2="${((i-1)*137)%800}" y2="${((i-1)*89)%400}" stroke="#2ECC71" stroke-opacity=".25"/>`}
+$("#net").innerHTML=h;
+const T=[["Was ist die Agenda 2030?","Ein Plan der UN von 2015: 17 Ziele für eine nachhaltigere Welt bis 2030."],["Wie viele Ziele gibt es?","17 Ziele, von Armut über Bildung bis Klima und Frieden."],["Wie steht die Welt da?","Laut UN-Bericht 2025: 35 % auf Kurs oder mäßig, 47 % zu langsam, 18 % Rückschritte (137 Zielvorgaben)."],["Welche Ziele sind besonders schwierig?","Das hängt vom Indikator ab. Öffne in der Zielübersicht z. B. Ziel 13 (Klima) oder 16 (Frieden) und lies den Reality Check."],["Wie schneidet Deutschland ab?","Im SDG-Index 2026 (SDSN) liegt Deutschland auf Platz 5 von 169 mit 84,0 von 100 Punkten. Das ist ein Gesamtwert und sagt nichts über jedes einzelne Ziel."],["Versprechen vs. Realität","Ein Beschluss ist noch keine Umsetzung. Genau deshalb prüfen wir Daten, nicht nur Ankündigungen."]];
+let s=0;const tr=()=>{$("#ts").textContent=`Station ${s+1} von ${T.length}`;$("#th").textContent=T[s][0];$("#tp").textContent=T[s][1];$("#tn").textContent=s===T.length-1?"Fertig":"Weiter"};
+$("#tourBtn").onclick=()=>{s=0;tr();$("#tour").classList.add("on")};
+$("#tn").onclick=()=>{s===T.length-1?$("#tour").classList.remove("on"):(s++,tr())};
+$("#tb").onclick=()=>{s>0&&(s--,tr())};$("#tx").onclick=()=>$("#tour").classList.remove("on");
+document.addEventListener("keydown",e=>{if(!$("#tour").classList.contains("on"))return;if(e.key==="ArrowRight")$("#tn").click();if(e.key==="ArrowLeft")$("#tb").click();if(e.key==="Escape")$("#tx").click()});
+$("#presBtn").onclick=e=>{const on=document.body.classList.toggle("pres");e.target.setAttribute("aria-pressed",on)};
+</script>
+</body></html>
